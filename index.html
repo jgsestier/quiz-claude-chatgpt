@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plutôt Claude ou plutôt ChatGPT ? — Le test qui révèle ton vrai Team IA</title>
+<meta name="description" content="10 questions pour savoir quel outil IA d'entreprise (Claude Team/Enterprise ou ChatGPT Business/Enterprise) correspond vraiment à ton style de travail." />
+<meta property="og:title" content="Plutôt Claude ou plutôt ChatGPT ?" />
+<meta property="og:description" content="Le test fun (et sérieux) pour orienter votre entreprise vers le bon outil IA." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f7f1e8;
+    --paper-dark: #ede4d3;
+    --ink: #1a1a1a;
+    --ink-soft: #2d2d2d;
+    --coral: #ff5a4d;
+    --coral-deep: #d63d32;
+    --claude: #c96442;
+    --claude-light: #f4e6dc;
+    --chatgpt: #0a8a72;
+    --chatgpt-light: #d9ebe6;
+    --highlight: #ffd84d;
+    --shadow: 0 12px 30px rgba(20, 14, 8, 0.12);
+    --shadow-soft: 0 4px 14px rgba(20, 14, 8, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background:
+      radial-gradient(circle at 10% 0%, rgba(255, 90, 77, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 90% 100%, rgba(10, 138, 114, 0.06) 0%, transparent 40%),
+      var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0);
+    background-size: 18px 18px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+  /* ============ INTRO ============ */
+  .intro { text-align: center; padding-top: 32px; }
+  .magazine-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .magazine-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--coral);
+    border-radius: 50%;
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.4); }
+  }
+  h1.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+  }
+  h1.title em {
+    font-style: italic;
+    color: var(--coral);
+    position: relative;
+  }
+  h1.title em::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -4px;
+    right: -4px;
+    height: 14px;
+    background: var(--highlight);
+    opacity: 0.5;
+    z-index: -1;
+    transform: rotate(-1deg);
+  }
+  .subtitle {
+    font-size: clamp(16px, 2.2vw, 19px);
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin: 0 auto 14px;
+  }
+  .scribble {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--coral-deep);
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin-top: 6px;
+  }
+  .intro-meta {
+    margin: 36px 0 32px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+  .intro-meta strong {
+    color: var(--ink);
+    font-weight: 700;
+    display: block;
+    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px 40px;
+    border: none;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+  }
+  .cta:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(20,14,8,0.18); }
+  .cta-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: none;
+  }
+  .intro-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed rgba(0,0,0,0.15);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .stamp {
+    display: inline-block;
+    border: 2px solid var(--coral-deep);
+    color: var(--coral-deep);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    transform: rotate(-2deg);
+    margin: 0 4px;
+  }
+  /* ============ QUIZ ============ */
+  .quiz { display: none; }
+  .quiz.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .progress-wrap {
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    padding: 16px 0 12px;
+    z-index: 10;
+    margin: -32px -24px 28px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .progress-bar {
+    height: 6px;
+    background: var(--paper-dark);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--claude) 0%, var(--coral) 50%, var(--chatgpt) 100%);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .question-card {
+    background: white;
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: var(--shadow);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .question-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--paper-dark);
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    user-select: none;
+  }
+  .question-kicker {
+    font-family: 'Caveat', cursive;
+    color: var(--coral-deep);
+    font-size: 22px;
+    margin-bottom: 8px;
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+  .question-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(22px, 3.2vw, 30px);
+    line-height: 1.18;
+    margin: 6px 0 28px;
+    letter-spacing: -0.01em;
+    max-width: 540px;
+  }
+  .options { display: flex; flex-direction: column; gap: 12px; }
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--paper);
+    border: 2px solid transparent;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ink);
+    transition: all 0.18s ease;
+    width: 100%;
+  }
+  .option:hover { border-color: var(--ink); transform: translateX(4px); }
+  .option-letter {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    transition: all 0.18s ease;
+  }
+  .option:hover .option-letter { background: var(--ink); color: var(--paper); }
+  .option.selected { border-color: var(--coral); background: white; transform: translateX(4px); }
+  .option.selected .option-letter { background: var(--coral); border-color: var(--coral); color: white; }
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    gap: 16px;
+  }
+  .nav-btn {
+    background: transparent;
+    color: var(--ink-soft);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 6px;
+    cursor: pointer;
+    transition: color 0.18s;
+  }
+  .nav-btn:hover:not(:disabled) { color: var(--ink); }
+  .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  /* ============ RESULTS ============ */
+  .results { display: none; }
+  .results.active { display: block; animation: fadeIn 0.5s ease; }
+  .result-header { text-align: center; padding: 30px 0 10px; }
+  .result-pre {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--coral-deep);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .result-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 26px;
+  }
+  .result-title em { font-style: italic; }
+  .result-title .winner-claude { color: var(--claude); }
+  .result-title .winner-gpt { color: var(--chatgpt); }
+  .result-title .winner-mixed {
+    background: linear-gradient(90deg, var(--claude), var(--chatgpt));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .score-card {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+  }
+  .score-bar-wrap {
+    margin: 18px 0 8px;
+    position: relative;
+    height: 56px;
+    background: var(--paper);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+  }
+  .score-claude, .score-gpt {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    padding: 0 18px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .score-claude {
+    background: linear-gradient(135deg, var(--claude) 0%, var(--coral-deep) 100%);
+    justify-content: flex-start;
+  }
+  .score-gpt {
+    background: linear-gradient(135deg, var(--chatgpt) 0%, #0a6e5c 100%);
+    justify-content: flex-end;
+  }
+  .score-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+  }
+  .profile-section { margin-top: 26px; }
+  .profile-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .profile-tagline {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 17px;
+    margin-bottom: 18px;
+    padding-left: 16px;
+    border-left: 3px solid var(--coral);
+  }
+  .profile-text { font-size: 16px; line-height: 1.6; margin-bottom: 14px; }
+  .profile-box {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 16px;
+    border-left: 4px solid var(--coral);
+  }
+  .profile-box h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 8px;
+    color: var(--ink-soft);
+  }
+  .profile-box p { font-size: 15px; line-height: 1.55; }
+  .reco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  @media (max-width: 560px) { .reco-grid { grid-template-columns: 1fr; } }
+  .reco-card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--shadow-soft);
+    border-top: 4px solid;
+  }
+  .reco-card.claude { border-top-color: var(--claude); }
+  .reco-card.gpt { border-top-color: var(--chatgpt); }
+  .reco-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .reco-card .reco-sub {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .reco-card.claude .reco-sub { color: var(--claude); }
+  .reco-card.gpt .reco-sub { color: var(--chatgpt); }
+  .reco-card ul { list-style: none; margin: 0; padding: 0; }
+  .reco-card li { padding: 6px 0 6px 22px; position: relative; font-size: 14.5px; line-height: 1.45; }
+  .reco-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-weight: 800;
+  }
+  .reco-card.claude li::before { color: var(--claude); }
+  .reco-card.gpt li::before { color: var(--chatgpt); }
+  .pricing-pill {
+    display: inline-block;
+    background: var(--paper);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 12px;
+    color: var(--ink-soft);
+  }
+  .governance-callout {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 20px;
+    padding: 28px 26px;
+    margin-top: 26px;
+  }
+  .governance-callout .stamp { background: transparent; border-color: var(--coral); color: var(--coral); margin-bottom: 14px; }
+  .governance-callout h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .governance-callout p { font-size: 15px; line-height: 1.6; opacity: 0.92; }
+  .governance-callout strong { color: var(--highlight); }
+  .actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+  }
+  .actions .cta { font-size: 14px; padding: 14px 24px; }
+  .footer-note {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed rgba(0,0,0,0.15);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .footer-note a { color: var(--ink); }
+  /* Mobile */
+  @media (max-width: 540px) {
+    .container { padding: 20px 16px 60px; }
+    .question-card { padding: 28px 22px; }
+    .question-number { font-size: 60px; top: 14px; right: 18px; }
+    .option { padding: 16px 16px; font-size: 15px; }
+    .score-card { padding: 24px 22px; }
+    .score-claude, .score-gpt { font-size: 18px; padding: 0 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro" class="intro">
+    <span class="magazine-tag">Édition Spéciale · Mai 2026</span>
+    <h1 class="title">Plutôt <em>Claude</em><br/>ou plutôt <em>ChatGPT</em> ?</h1>
+    <p class="subtitle">Le test (presque) sérieux qui révèle quel outil IA d'entreprise correspond vraiment à ton style de travail.</p>
+    <p class="scribble">…et à quoi ressemble ta journée idéale avec une IA payée par la boîte.</p>
+
+    <div class="intro-meta">
+      <div><strong>10</strong>questions</div>
+      <div><strong>3 min</strong>chrono</div>
+      <div><strong>1</strong>verdict</div>
+    </div>
+
+    <button class="cta" onclick="startQuiz()">Démarrer le test →</button>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="quiz" class="quiz">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="progress-label">Question 1 / 10</span>
+        <span id="progress-section">— Premier test —</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-number" id="q-num">01</div>
+      <span class="question-kicker" id="q-kicker">on commence par les bases</span>
+      <h2 class="question-text" id="q-text">…</h2>
+      <div class="options" id="q-options"></div>
+      <div class="nav-buttons">
+        <button class="nav-btn" id="prev-btn" onclick="prevQuestion()">← Précédent</button>
+        <button class="nav-btn" id="next-btn" onclick="nextQuestion()" disabled>Suivant →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section id="results" class="results">
+    <div class="result-header">
+      <span class="result-pre">Verdict du jury</span>
+      <h2 class="result-title" id="result-title">…</h2>
+    </div>
+
+    <div class="score-card">
+      <div class="score-labels"><span>Claude</span><span>ChatGPT</span></div>
+      <div class="score-bar-wrap">
+        <div class="score-claude" id="bar-claude"><span id="pct-claude">50%</span></div>
+        <div class="score-gpt" id="bar-gpt"><span id="pct-gpt">50%</span></div>
+      </div>
+    </div>
+
+    <div class="score-card">
+      <div class="profile-section">
+        <h3 class="profile-title" id="profile-title">…</h3>
+        <p class="profile-tagline" id="profile-tagline">…</p>
+        <p class="profile-text" id="profile-text">…</p>
+
+        <div class="profile-box">
+          <h4>L'autre outil brille quand…</h4>
+          <p id="profile-other">…</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reco-grid">
+      <div class="reco-card claude">
+        <h3>Claude</h3>
+        <div class="reco-sub" id="claude-plan">Team ou Enterprise</div>
+        <ul id="claude-points">
+          <li>Contexte 200K tokens (1M sur Opus 4.7)</li>
+          <li>Projects + Skills partagés en équipe</li>
+          <li>Cowork : Claude prend la main sur ton ordi</li>
+          <li>MCP : 38+ connecteurs natifs</li>
+          <li>Anti-flatterie par design</li>
+        </ul>
+        <div class="pricing-pill">Team dès 20 $/siège · Enterprise sur devis</div>
+      </div>
+      <div class="reco-card gpt">
+        <h3>ChatGPT</h3>
+        <div class="reco-sub" id="gpt-plan">Business ou Enterprise</div>
+        <ul id="gpt-points">
+          <li>GPT-5.5 Auto/Instant/Thinking/Pro</li>
+          <li>gpt-image-2 et Advanced Voice Mode</li>
+          <li>Workspace Agents et 60+ Apps</li>
+          <li>Codex, Canvas, Atlas</li>
+          <li>Marque la plus reconnue, adoption rapide</li>
+        </ul>
+        <div class="pricing-pill">Business 20-25 $/siège · Enterprise sur devis</div>
+      </div>
+    </div>
+
+    <div class="governance-callout">
+      <span class="stamp">Le vrai sujet</span>
+      <h3>Au-delà du choix de l'outil, le vrai enjeu, c'est <strong>qui paie</strong>.</h3>
+      <p>Un collaborateur qui utilise son compte personnel (Free, Plus, Pro) sur des données pro, c'est : <strong>training-exclusion non garantie</strong>, <strong>aucun audit log</strong>, <strong>aucune politique de rétention</strong>, <strong>aucun SSO</strong>, et la conviction qu'il rend service à la boîte. <strong>Un outil IA d'entreprise payé par l'entreprise n'est pas un luxe — c'est la condition de base pour avoir une politique de gouvernance qui tienne.</strong></p>
+    </div>
+
+    <div class="actions">
+      <button class="cta" onclick="restart()">↻ Recommencer le test</button>
+      <button class="cta cta-secondary" onclick="shareResult()">Partager mon profil</button>
+    </div>
+
+    <div class="footer-note">
+      Test conçu par <a href="https://eqxia.com" target="_blank" rel="noopener">Eqxia</a> — Applied Intelligence.<br/>
+      Basé sur les capacités publiées en mai 2026 de Claude Team / Enterprise et ChatGPT Business / Enterprise.
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ============ QUIZ DATA ============ */
+const QUESTIONS = [
+  {
+    section: 'La journée idéale',
+    kicker: 'on commence par les bases',
+    text: 'Tu démarres ta journée. Le premier truc que tu demandes à ton IA, c\'est…',
+    options: [
+      { letter: 'A', text: 'Lire 200 pages de rapport et en sortir les 3 vrais signaux faibles.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Me générer 5 visuels pour mon post LinkedIn de 10h.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Faire le point sur mes emails, Teams et mon agenda avant le 11h.', claude: 2, gpt: 2 },
+      { letter: 'D', text: 'Réfléchir à voix haute sur une décision stratégique qui me préoccupe.', claude: 3, gpt: 1 }
+    ]
+  },
+  {
+    section: 'Le moment de vérité',
+    kicker: 'sois honnête',
+    text: 'Tu présentes ton plan stratégique à l\'IA. Tu préfères qu\'elle…',
+    options: [
+      { letter: 'A', text: 'Te dise direct ce qui cloche, même si ça pique un peu.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Valide d\'abord, puis nuance gentiment ses réserves.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Te propose 3 contre-arguments solides — à toi de trancher.', claude: 2, gpt: 1 },
+      { letter: 'D', text: 'Reformule ton plan pour le rendre encore plus convaincant.', claude: 0, gpt: 2 }
+    ]
+  },
+  {
+    section: 'Présentation client',
+    kicker: 'le moment vérité du deck',
+    text: 'Quand tu fais un livrable client, ton signature move c\'est…',
+    options: [
+      { letter: 'A', text: 'Un .pptx généré à ta charte graphique, prêt à imprimer.', claude: 3, gpt: 1 },
+      { letter: 'B', text: 'Des illustrations IA sur-mesure, une par slide.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Un one-pager interactif (HTML) qui dit tout sur une page.', claude: 3, gpt: 0 },
+      { letter: 'D', text: 'Un Canvas que je peaufine en live avec mon IA en parallèle.', claude: 1, gpt: 2 }
+    ]
+  },
+  {
+    section: 'L\'esprit d\'équipe',
+    kicker: 'au-delà de toi',
+    text: 'Sur ton équipe de 20 personnes, ce qui te rendrait fier·e c\'est…',
+    options: [
+      { letter: 'A', text: 'Que tout le monde produise la même qualité, grâce à des Skills écrits une fois.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Que chacun ait son propre GPT customisé, taillé pour son métier.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Que l\'IA pilote elle-même les outils (Slack, Drive, M365) à la place de l\'équipe.', claude: 3, gpt: 1 },
+      { letter: 'D', text: 'Que chacun maîtrise un agent qui enchaîne des actions tout seul.', claude: 1, gpt: 2 }
+    ]
+  },
+  {
+    section: 'Le gros document',
+    kicker: '200 pages, et alors ?',
+    text: 'Face à un rapport annuel de 200 pages à analyser, ta réaction c\'est…',
+    options: [
+      { letter: 'A', text: 'J\'upload tout, je veux qu\'elle compare la p.12 et la p.197.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Je crée un Project, je l\'upload une fois et j\'enchaîne les analyses.', claude: 2, gpt: 2 },
+      { letter: 'C', text: 'Je laisse l\'IA scanner intelligemment et chercher ce qui est pertinent.', claude: 0, gpt: 2 },
+      { letter: 'D', text: 'Je découpe en morceaux, je sais que les LLM ont leurs limites.', claude: 0, gpt: 1 }
+    ]
+  },
+  {
+    section: 'Automatiser',
+    kicker: 'le moment "code"',
+    text: 'Tu veux automatiser une tâche dans ton process. Ton instinct c\'est…',
+    options: [
+      { letter: 'A', text: 'Lancer Claude Code, décrire ce que je veux, ça crée le script.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Demander à Codex dans ChatGPT — c\'est plus simple pour moi.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Préférer une interface no-code où je clique, je ne tape pas de commandes.', claude: 1, gpt: 2 },
+      { letter: 'D', text: 'Déléguer à un dev — l\'IA c\'est pas pour ça chez moi.', claude: 1, gpt: 1 }
+    ]
+  },
+  {
+    section: 'Le DSI veille',
+    kicker: 'parlons gouvernance',
+    text: 'Ce qui te rassure le plus chez un outil IA d\'entreprise, c\'est…',
+    options: [
+      { letter: 'A', text: 'Une IA qui pousse à se corriger, pas qui flatte tes décisions.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Une grosse marque mondiale — mon board reconnait le nom direct.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Un setup éclair : SSO + central billing, on déploie en 1 journée.', claude: 2, gpt: 2 },
+      { letter: 'D', text: 'La stack compliance complète : SCIM, EKM, audit logs, résidence des données.', claude: 1, gpt: 2 }
+    ]
+  },
+  {
+    section: 'Image, voix, son',
+    kicker: 'au-delà du texte',
+    text: 'Sur les modalités créatives (image, voix, vidéo), tu es plutôt…',
+    options: [
+      { letter: 'A', text: 'Génération d\'images pro tous les jours — c\'est dans mon workflow.', claude: 0, gpt: 3 },
+      { letter: 'B', text: 'Je branche un connecteur Adobe quand j\'ai un besoin créa précis.', claude: 3, gpt: 0 },
+      { letter: 'C', text: 'Voix temps réel : je dicte tout en marchant, je hais taper.', claude: 1, gpt: 3 },
+      { letter: 'D', text: 'Honnêtement ? Un Excel propre m\'impressionne plus qu\'une jolie image.', claude: 3, gpt: 0 }
+    ]
+  },
+  {
+    section: 'Ton style',
+    kicker: 'comment tu fonctionnes',
+    text: 'Ta préférence quand l\'IA t\'aide à organiser ton travail…',
+    options: [
+      { letter: 'A', text: 'Des fichiers texte propres et versionnables (Skills .md), peu de magie.', claude: 3, gpt: 0 },
+      { letter: 'B', text: 'Une UI fluide, des boutons partout, du drag-and-drop.', claude: 0, gpt: 3 },
+      { letter: 'C', text: 'Que l\'IA prenne ton ordi en main et fasse les choses à ta place.', claude: 3, gpt: 1 },
+      { letter: 'D', text: 'Un agent qui enchaîne plusieurs apps tout seul, en arrière-plan.', claude: 1, gpt: 2 }
+    ]
+  },
+  {
+    section: 'Le pitch final',
+    kicker: 'et là tu convaincs ton CEO',
+    text: 'Pour convaincre la direction d\'adopter UN seul outil IA d\'entreprise, ton argument c\'est…',
+    options: [
+      { letter: 'A', text: 'C\'est le plus connu — tout le monde a déjà entendu parler.', claude: 0, gpt: 3 },
+      { letter: 'B', text: 'C\'est le plus exigeant — il fait grandir l\'équipe techniquement.', claude: 3, gpt: 0 },
+      { letter: 'C', text: 'C\'est le moins cher pour démarrer et tester l\'usage.', claude: 1, gpt: 2 },
+      { letter: 'D', text: 'C\'est celui qui ne flatte pas — j\'ai besoin d\'un sparring partner.', claude: 3, gpt: 0 }
+    ]
+  }
+];
+
+/* ============ RESULT PROFILES ============ */
+const PROFILES = [
+  {
+    minClaude: 78,
+    title: 'L\'<em><span class="winner-claude">Architecte Claude</span></em>',
+    tagline: 'Tu fais partie de cette tribu qui préfère qu\'on lui dise la vérité — quitte à reprendre le brouillon.',
+    text: 'Ton terrain de jeu, c\'est l\'analyse profonde, le contexte long, le livrable carré. Tu aimes les workflows qui se laissent versionner, les outils qui te font monter en exigence plutôt qu\'en confort. Claude Team (ou Enterprise) est fait pour toi : Projects partagés, Skills versionnables, MCP/Cowork pour piloter ton ordi, et cette anti-sycophantie qui fait que l\'IA t\'engueule (un peu) quand ton hypothèse est faible.',
+    other: 'ChatGPT brille quand tu as besoin de visuels rapides, d\'une démo client séduisante, ou que tu veux onboarder une équipe non-technique en 10 minutes. Garde-le pour la créa et la communication grand public.',
+    claudePlan: 'Enterprise — 500K+ contexte, HIPAA, SCIM, audit logs',
+    gptPlan: 'Business pour la créa visuelle ponctuelle'
+  },
+  {
+    minClaude: 60,
+    title: 'Le/La <em><span class="winner-claude">Stratège Claude</span></em>',
+    tagline: 'Versatile mais exigeant·e — tu reconnais la précision quand tu la vois.',
+    text: 'Tu utilises l\'IA comme un partenaire de réflexion, pas comme un générateur de contenu. Le contexte long, la qualité du raisonnement et la possibilité de produire des Excel/PPTX corrects te parlent plus que les démos flashy. Claude Team est ton point d\'entrée naturel — central billing, Projects partagés, connecteurs M365, et la possibilité de créer des Skills pour standardiser ton équipe.',
+    other: 'ChatGPT excelle sur la génération d\'images (gpt-image-2), Advanced Voice Mode, et la couverture marketing/communication où la quantité prime sur la nuance. À garder en seconde corde.',
+    claudePlan: 'Team — démarrage à 20 $/siège, minimum 5',
+    gptPlan: 'Business sur les profils créa/marketing'
+  },
+  {
+    minClaude: 45,
+    title: 'L\'<em><span class="winner-mixed">Hybride éclairé·e</span></em>',
+    tagline: 'Tu refuses la guerre des chapelles — et tu as raison.',
+    text: 'Ton score est trop serré pour un verdict tranché : tu as compris qu\'aucun outil n\'écrase l\'autre sur tous les terrains. La vraie question n\'est plus <em>« lequel choisir »</em> mais <em>« lequel pour quoi »</em>. Beaucoup d\'entreprises matures finissent là : Claude pour l\'analyse profonde et la production carrée, ChatGPT pour la créa, la voix et l\'accessibilité grand public. Le tout, sur des abonnements payés par la boîte.',
+    other: 'Le vrai risque n\'est pas le choix de l\'outil. C\'est de laisser tes collaborateurs continuer à utiliser leur compte perso (Free/Plus/Pro) sur des données pro — sans training-exclusion garantie, sans audit log, sans rétention configurable.',
+    claudePlan: 'Team pour l\'analyse, en mix',
+    gptPlan: 'Business pour la créa, en mix'
+  },
+  {
+    minClaude: 25,
+    title: 'Le/La <em><span class="winner-gpt">Créatif·ve ChatGPT</span></em>',
+    tagline: 'Tu aimes les outils qui montrent ce qu\'ils savent faire — visuellement, vite, bien.',
+    text: 'Tu valorises la rapidité d\'adoption, la richesse multimodale (image, voix, vidéo via apps), et l\'écosystème massif. ChatGPT Business correspond à ton profil : SAML SSO, no-training par défaut, Workspace Agents, 60+ Apps, gpt-image-2 et Codex inclus. Tu seras opérationnel·le en 1 journée pour ton équipe.',
+    other: 'Claude brille pour l\'analyse de très longs documents (200 pages d\'un coup), pour produire des livrables précis (Excel/PPTX/PDF) et pour les équipes qui veulent standardiser leurs outputs via des Skills. À garder en complément sur les use cases techniques.',
+    claudePlan: 'Team en seconde corde pour les analystes',
+    gptPlan: 'Business — démarrage immédiat'
+  },
+  {
+    minClaude: 0,
+    title: 'Le/La <em><span class="winner-gpt">Sprinter ChatGPT</span></em>',
+    tagline: 'Tu veux l\'outil le plus connu, le plus polyvalent, et un déploiement éclair.',
+    text: 'Pour toi, l\'IA doit être accessible, visuelle, et reconnue. Tu privilégies la rapidité de prise en main, la marque qui rassure ton board, et un écosystème qui couvre image, voix, agents et code. ChatGPT Business est le bon point d\'entrée — et Enterprise dès que tu dépasses 150 sièges ou que tu as une obligation réglementaire forte (SCIM, EKM, Compliance API, résidence des données).',
+    other: 'Claude reste pertinent pour les cas où la précision technique prime : long contexte (200K tokens), Skills réutilisables, production de fichiers Excel/PPTX/PDF avec contenu nuancé, et Cowork pour piloter ton OS directement.',
+    claudePlan: 'Team uniquement si analyse profonde requise',
+    gptPlan: 'Enterprise dès 150 sièges ou contrainte réglementaire'
+  }
+];
+
+/* ============ STATE ============ */
+let currentQ = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+
+/* ============ FUNCTIONS ============ */
+function startQuiz() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('quiz').classList.add('active');
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[currentQ];
+  document.getElementById('q-num').textContent = String(currentQ + 1).padStart(2, '0');
+  document.getElementById('q-kicker').textContent = q.kicker;
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('progress-label').textContent = `Question ${currentQ + 1} / ${QUESTIONS.length}`;
+  document.getElementById('progress-section').textContent = `— ${q.section} —`;
+  document.getElementById('progress-fill').style.width = `${((currentQ) / QUESTIONS.length) * 100}%`;
+
+  const optsEl = document.getElementById('q-options');
+  optsEl.innerHTML = '';
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'option' + (answers[currentQ] === idx ? ' selected' : '');
+    btn.innerHTML = `<span class="option-letter">${opt.letter}</span><span>${opt.text}</span>`;
+    btn.onclick = () => selectOption(idx);
+    optsEl.appendChild(btn);
+  });
+
+  document.getElementById('prev-btn').disabled = currentQ === 0;
+  document.getElementById('next-btn').disabled = answers[currentQ] === null;
+  document.getElementById('next-btn').textContent = (currentQ === QUESTIONS.length - 1) ? 'Voir mon verdict →' : 'Suivant →';
+}
+
+function selectOption(idx) {
+  answers[currentQ] = idx;
+  renderQuestion();
+  // Auto-advance after a brief animation
+  setTimeout(() => {
+    if (currentQ < QUESTIONS.length - 1) {
+      currentQ++;
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      showResults();
+    }
+  }, 350);
+}
+
+function nextQuestion() {
+  if (answers[currentQ] === null) return;
+  if (currentQ < QUESTIONS.length - 1) {
+    currentQ++;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showResults();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ === 0) return;
+  currentQ--;
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showResults() {
+  let claudeScore = 0, gptScore = 0;
+  answers.forEach((ans, qi) => {
+    if (ans === null) return;
+    claudeScore += QUESTIONS[qi].options[ans].claude;
+    gptScore += QUESTIONS[qi].options[ans].gpt;
+  });
+  const total = claudeScore + gptScore || 1;
+  const claudePct = Math.round((claudeScore / total) * 100);
+  const gptPct = 100 - claudePct;
+
+  // Pick profile
+  const profile = PROFILES.find(p => claudePct >= p.minClaude) || PROFILES[PROFILES.length - 1];
+
+  // Build result title
+  let resultTitle;
+  if (claudePct >= 78) {
+    resultTitle = `Tu es <em class="winner-claude">${claudePct}%</em><br/>Team Claude.`;
+  } else if (claudePct >= 60) {
+    resultTitle = `Tu penches<br/><em class="winner-claude">Claude (${claudePct}%)</em>.`;
+  } else if (claudePct >= 45) {
+    resultTitle = `Tu es <em class="winner-mixed">parfaitement à cheval</em>.<br/>${claudePct}% Claude · ${gptPct}% ChatGPT.`;
+  } else if (claudePct >= 25) {
+    resultTitle = `Tu penches<br/><em class="winner-gpt">ChatGPT (${gptPct}%)</em>.`;
+  } else {
+    resultTitle = `Tu es <em class="winner-gpt">${gptPct}%</em><br/>Team ChatGPT.`;
+  }
+
+  document.getElementById('result-title').innerHTML = resultTitle;
+  document.getElementById('profile-title').innerHTML = profile.title;
+  document.getElementById('profile-tagline').textContent = profile.tagline;
+  document.getElementById('profile-text').innerHTML = profile.text;
+  document.getElementById('profile-other').textContent = profile.other;
+  document.getElementById('claude-plan').textContent = profile.claudePlan;
+  document.getElementById('gpt-plan').textContent = profile.gptPlan;
+
+  document.getElementById('quiz').classList.remove('active');
+  document.getElementById('results').classList.add('active');
+
+  // Animate the bars
+  setTimeout(() => {
+    document.getElementById('bar-claude').style.width = `${claudePct}%`;
+    document.getElementById('bar-gpt').style.width = `${gptPct}%`;
+    document.getElementById('pct-claude').textContent = `Claude ${claudePct}%`;
+    document.getElementById('pct-gpt').textContent = `${gptPct}% ChatGPT`;
+  }, 100);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Store result for sharing
+  window.__quizResult = { claudePct, gptPct, profile: profile.title.replace(/<[^>]+>/g, '') };
+}
+
+function restart() {
+  currentQ = 0;
+  answers.fill(null);
+  document.getElementById('results').classList.remove('active');
+  document.getElementById('quiz').classList.remove('active');
+  document.getElementById('intro').style.display = 'block';
+  document.getElementById('bar-claude').style.width = '0%';
+  document.getElementById('bar-gpt').style.width = '0%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function shareResult() {
+  const r = window.__quizResult;
+  const text = `Je viens de faire le test « Plutôt Claude ou plutôt ChatGPT ? » — Verdict : ${r.claudePct}% Claude / ${r.gptPct}% ChatGPT. Et toi ? ${location.href}`;
+  if (navigator.share) {
+    navigator.share({ title: 'Plutôt Claude ou plutôt ChatGPT ?', text, url: location.href }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Texte copié dans le presse-papier — colle-le sur LinkedIn !');
+    });
+  }
+}
+</script>
+</body>
+</html>
