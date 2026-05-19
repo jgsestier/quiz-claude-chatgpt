@@ -494,6 +494,236 @@
   }
   .governance-callout p { font-size: 15px; line-height: 1.6; opacity: 0.92; }
   .governance-callout strong { color: var(--highlight); }
+  /* ============ FORMATIONS EQXIA ============ */
+  .formations {
+    margin-top: 36px;
+    padding: 8px 0;
+  }
+  .formations-header { text-align: center; margin-bottom: 28px; }
+  .formations-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 6px 0 14px;
+  }
+  .formations-title em {
+    font-style: italic;
+    color: var(--coral);
+    position: relative;
+  }
+  .formations-title em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: -2px;
+    right: -2px;
+    height: 10px;
+    background: var(--highlight);
+    opacity: 0.5;
+    z-index: -1;
+    transform: rotate(-1deg);
+  }
+  .formations-intro {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+  .formations-intro strong { color: var(--ink); font-weight: 700; }
+  .formations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  @media (max-width: 720px) {
+    .formations-grid { grid-template-columns: 1fr; }
+  }
+  .formation-card {
+    background: white;
+    border-radius: 22px;
+    padding: 28px 26px;
+    box-shadow: var(--shadow-soft);
+    border-top: 6px solid;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .formation-card.claude { border-top-color: var(--claude); }
+  .formation-card.gpt { border-top-color: var(--chatgpt); }
+  .formation-card.primary {
+    box-shadow: var(--shadow);
+    transform: translateY(-4px);
+    background: linear-gradient(180deg, white 0%, #fffaf3 100%);
+    order: -1;
+  }
+  .formation-card.secondary {
+    opacity: 0.92;
+  }
+  .formation-card.secondary .formation-program { opacity: 0.78; }
+  .formation-card.secondary .formation-pitch { color: var(--ink-soft); font-size: 14.5px; }
+  .formation-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    background: var(--coral);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    box-shadow: 0 6px 16px rgba(255, 90, 77, 0.35);
+    white-space: nowrap;
+    display: none;
+  }
+  .formation-card.primary .formation-badge { display: block; }
+  .formation-card.gpt.primary .formation-badge { background: var(--chatgpt); box-shadow: 0 6px 16px rgba(10, 138, 114, 0.35); }
+  .formation-card.hybrid .formation-badge { display: block; background: var(--ink); }
+  .formation-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+  }
+  .formation-card.claude .formation-tag { color: var(--claude); }
+  .formation-card.gpt .formation-tag { color: var(--chatgpt); }
+  .formation-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 8px 0 2px;
+  }
+  .formation-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .formation-meta-list {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 14px 0;
+    border-top: 1px dashed rgba(0,0,0,0.12);
+    border-bottom: 1px dashed rgba(0,0,0,0.12);
+  }
+  .formation-meta-list li {
+    font-size: 13.5px;
+    padding: 3px 0;
+    color: var(--ink-soft);
+  }
+  .formation-meta-list strong {
+    display: inline-block;
+    min-width: 80px;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .formation-pitch {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .formation-program {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .formation-program h5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .formation-program ol {
+    list-style: none;
+    counter-reset: step;
+    margin: 0;
+    padding: 0;
+  }
+  .formation-program li {
+    counter-increment: step;
+    font-size: 13.5px;
+    line-height: 1.4;
+    padding: 4px 0 4px 26px;
+    position: relative;
+  }
+  .formation-program li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--coral);
+  }
+  .formation-card.gpt .formation-program li::before { color: var(--chatgpt); }
+  .formation-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s;
+    text-align: center;
+  }
+  .formation-card.claude .formation-cta {
+    background: var(--claude);
+    color: white;
+  }
+  .formation-card.gpt .formation-cta {
+    background: var(--chatgpt);
+    color: white;
+  }
+  .formation-card.secondary .formation-cta {
+    background: transparent;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+  }
+  .formation-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(20, 14, 8, 0.18);
+  }
+  .formations-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .formations-footer a {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--coral);
+    text-underline-offset: 3px;
+  }
+
   .actions {
     display: flex;
     gap: 12px;
@@ -592,38 +822,84 @@
       </div>
     </div>
 
-    <div class="reco-grid">
-      <div class="reco-card claude">
-        <h3>Claude</h3>
-        <div class="reco-sub" id="claude-plan">Team ou Enterprise</div>
-        <ul id="claude-points">
-          <li>Contexte 200K tokens (1M sur Opus 4.7)</li>
-          <li>Projects + Skills partagés en équipe</li>
-          <li>Cowork : Claude prend la main sur ton ordi</li>
-          <li>MCP : 38+ connecteurs natifs</li>
-          <li>Anti-flatterie par design</li>
-        </ul>
-        <div class="pricing-pill">Team dès 20 $/siège · Enterprise sur devis</div>
-      </div>
-      <div class="reco-card gpt">
-        <h3>ChatGPT</h3>
-        <div class="reco-sub" id="gpt-plan">Business ou Enterprise</div>
-        <ul id="gpt-points">
-          <li>GPT-5.5 Auto/Instant/Thinking/Pro</li>
-          <li>gpt-image-2 et Advanced Voice Mode</li>
-          <li>Workspace Agents et 60+ Apps</li>
-          <li>Codex, Canvas, Atlas</li>
-          <li>Marque la plus reconnue, adoption rapide</li>
-        </ul>
-        <div class="pricing-pill">Business 20-25 $/siège · Enterprise sur devis</div>
-      </div>
-    </div>
-
     <div class="governance-callout">
       <span class="stamp">Le vrai sujet</span>
       <h3>Au-delà du choix de l'outil, le vrai enjeu, c'est <strong>qui paie</strong>.</h3>
       <p>Un collaborateur qui utilise son compte personnel (Free, Plus, Pro) sur des données pro, c'est : <strong>training-exclusion non garantie</strong>, <strong>aucun audit log</strong>, <strong>aucune politique de rétention</strong>, <strong>aucun SSO</strong>, et la conviction qu'il rend service à la boîte. <strong>Un outil IA d'entreprise payé par l'entreprise n'est pas un luxe — c'est la condition de base pour avoir une politique de gouvernance qui tienne.</strong></p>
     </div>
+
+    <!-- ===== FORMATIONS EQXIA ===== -->
+    <section class="formations">
+      <div class="formations-header">
+        <span class="result-pre">La suite logique</span>
+        <h3 class="formations-title">Maintenant que vous savez quel outil vous correspond,<br/><em>on vous le déploie en équipe.</em></h3>
+        <p class="formations-intro">Deux ateliers <strong>Eqxia</strong> d'une journée, sur vos cas réels, en français. Pour transformer l'outil en levier collectif — pas en gadget individuel.</p>
+      </div>
+
+      <div class="formations-grid">
+
+        <article class="formation-card claude" id="formation-claude">
+          <div class="formation-badge" id="badge-claude">Recommandé pour vous</div>
+          <span class="formation-tag">Atelier · 6h</span>
+          <h4 class="formation-name">Claude</h4>
+          <p class="formation-sub">L'IA qui change la donne</p>
+
+          <ul class="formation-meta-list">
+            <li><strong>Durée</strong> 1 journée (3h matin + 3h après-midi)</li>
+            <li><strong>Format</strong> Présentiel ou hybride · 8-15 personnes</li>
+            <li><strong>Pour qui</strong> Équipes opérationnelles + AI champions</li>
+          </ul>
+
+          <p class="formation-pitch">De Projects à Cowork : on prend en main les capacités qui distinguent Claude — long contexte (200K-1M tokens), MCP, Skills versionnables, agentic sur votre propre OS.</p>
+
+          <div class="formation-program">
+            <h5>Au programme</h5>
+            <ol>
+              <li>The GenAI Landscape 2026 — situer Claude vs ChatGPT vs Copilot</li>
+              <li>Configure & Personalise — Memory, Preferences, anti-sycophantie</li>
+              <li>Projects, Artifacts & Deep Research — workflows et livrables</li>
+              <li>Connectors & Skills — MCP, M365, vos skills sur-mesure</li>
+              <li>Cowork & Plugins — Claude pilote ordi, fichiers, apps</li>
+            </ol>
+          </div>
+
+          <a class="formation-cta" id="cta-claude" href="mailto:julien.guillotsestier@eqxia.com">Demander le programme détaillé →</a>
+        </article>
+
+        <article class="formation-card gpt" id="formation-gpt">
+          <div class="formation-badge" id="badge-gpt">Recommandé pour vous</div>
+          <span class="formation-tag">Atelier · 6h</span>
+          <h4 class="formation-name">ChatGPT Business</h4>
+          <p class="formation-sub">L'IA leader sur le marché</p>
+
+          <ul class="formation-meta-list">
+            <li><strong>Durée</strong> 2 demi-journées de 3h</li>
+            <li><strong>Format</strong> Présentiel ou hybride · 8-15 personnes</li>
+            <li><strong>Pour qui</strong> Équipes opérationnelles + AI champions</li>
+          </ul>
+
+          <p class="formation-pitch">L'outil le plus déployé au monde, en équipe : Workspaces, Custom GPTs, Workspace Agents, Codex, gpt-image-2, Atlas. On va au-delà du chat.</p>
+
+          <div class="formation-program">
+            <h5>Au programme</h5>
+            <ol>
+              <li>GenAI Landscape & ChatGPT Business Positioning</li>
+              <li>Configure & Personalise — Custom Instructions, Memory, sliders</li>
+              <li>Workspaces : Projects, Custom GPTs & Skills</li>
+              <li>Canvas, Deep Research & GPT Image-2</li>
+              <li>Connectors, Agent Mode, Workspace Agents, Codex, Atlas</li>
+            </ol>
+          </div>
+
+          <a class="formation-cta" id="cta-gpt" href="mailto:julien.guillotsestier@eqxia.com">Demander le programme détaillé →</a>
+        </article>
+
+      </div>
+
+      <p class="formations-footer">
+        Vous voulez les deux outils ? On fait aussi des parcours combinés sur 2 jours. <a href="mailto:julien.guillotsestier@eqxia.com?subject=Parcours%20combin%C3%A9%20Claude%20%2B%20ChatGPT">Écrivez-nous</a>.
+      </p>
+    </section>
 
     <div class="actions">
       <button class="cta" onclick="restart()">↻ Recommencer le test</button>
@@ -904,8 +1180,9 @@ function showResults() {
   document.getElementById('profile-tagline').textContent = profile.tagline;
   document.getElementById('profile-text').innerHTML = profile.text;
   document.getElementById('profile-other').textContent = profile.other;
-  document.getElementById('claude-plan').textContent = profile.claudePlan;
-  document.getElementById('gpt-plan').textContent = profile.gptPlan;
+
+  // Set up formation cards (primary/secondary/hybrid based on score)
+  setupFormations(claudePct, gptPct, profile);
 
   document.getElementById('quiz').classList.remove('active');
   document.getElementById('results').classList.add('active');
@@ -922,6 +1199,63 @@ function showResults() {
 
   // Store result for sharing
   window.__quizResult = { claudePct, gptPct, profile: profile.title.replace(/<[^>]+>/g, '') };
+}
+
+function setupFormations(claudePct, gptPct, profile) {
+  const cardClaude = document.getElementById('formation-claude');
+  const cardGpt = document.getElementById('formation-gpt');
+  const badgeClaude = document.getElementById('badge-claude');
+  const badgeGpt = document.getElementById('badge-gpt');
+
+  // Reset classes
+  cardClaude.classList.remove('primary', 'secondary', 'hybrid');
+  cardGpt.classList.remove('primary', 'secondary', 'hybrid');
+
+  // Determine the dominant formation
+  if (claudePct >= 55) {
+    cardClaude.classList.add('primary');
+    cardGpt.classList.add('secondary');
+    badgeClaude.textContent = 'Recommandé pour vous';
+  } else if (claudePct <= 45) {
+    cardGpt.classList.add('primary');
+    cardClaude.classList.add('secondary');
+    badgeGpt.textContent = 'Recommandé pour vous';
+  } else {
+    // Hybrid zone (46-54%) — both equal, both highlighted
+    cardClaude.classList.add('hybrid');
+    cardGpt.classList.add('hybrid');
+    badgeClaude.textContent = 'Profil mixte — les deux';
+    badgeGpt.textContent = 'Profil mixte — les deux';
+  }
+
+  // Build personalised mailto links
+  const profileName = profile.title.replace(/<[^>]+>/g, '').trim();
+
+  const subjectClaude = `Demande de programme — Atelier Claude (quiz ${claudePct}% Claude)`;
+  const subjectGpt = `Demande de programme — Atelier ChatGPT Business (quiz ${gptPct}% ChatGPT)`;
+
+  const bodyTpl = (tool) => `Bonjour Julien,
+
+Je viens de faire le quiz « Plutôt Claude ou plutôt ChatGPT ? ».
+
+Mon résultat :
+• ${claudePct}% Claude · ${gptPct}% ChatGPT
+• Profil : ${profileName}
+
+Je souhaite recevoir le programme détaillé de l'atelier ${tool}.
+
+Mon contexte :
+• Société :
+• Fonction :
+• Taille de l'équipe à former :
+• Échéance souhaitée :
+
+Merci !`;
+
+  document.getElementById('cta-claude').href =
+    `mailto:julien.guillotsestier@eqxia.com?subject=${encodeURIComponent(subjectClaude)}&body=${encodeURIComponent(bodyTpl('Claude'))}`;
+  document.getElementById('cta-gpt').href =
+    `mailto:julien.guillotsestier@eqxia.com?subject=${encodeURIComponent(subjectGpt)}&body=${encodeURIComponent(bodyTpl('ChatGPT Business'))}`;
 }
 
 function restart() {
